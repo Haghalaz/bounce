@@ -1,4 +1,4 @@
-import { Application, Graphics, Ticker } from "pixi.js";
+import { Application, Ticker } from "pixi.js";
 import { createRef, useEffect, useState } from "react";
 
 import { updateCirclePosition } from "./utils/functions/circleUtils";
@@ -20,14 +20,14 @@ const initialPosition = 100;
 const squareSize = 24;
 const circleSize = 24;
 
-let primaryVelocityX: number, primaryVelocityY: number, secondaryVelocityX: number, secondaryVelocityY: number;
+let primaryVelocityX, primaryVelocityY, secondaryVelocityX, secondaryVelocityY;
 
 function App() {
-  const pixiContainer = createRef<HTMLDivElement>();
-  const [sand, setSand] = useState<number>(0);
-  const [sea, setSea] = useState<number>(0);
+  const pixiContainer = createRef();
+  const [sand, setSand] = useState(0);
+  const [sea, setSea] = useState(0);
 
-  const [reload, setReload] = useState<boolean>(false);
+  const [reload, setReload] = useState(false);
 
   useEffect(() => {
     if (!pixiContainer.current) return;
@@ -66,7 +66,7 @@ function App() {
       [secondaryVelocityX, secondaryVelocityY] = updateCirclePosition(app, circleSecondary, secondaryVelocityX, secondaryVelocityY);
 
       gridContainer.children.forEach((gridSquare) => {
-        const squareGraphics = gridSquare as Graphics;
+        const squareGraphics = gridSquare;
         const squareIndex = gridContainer.getChildIndex(squareGraphics);
 
         if (squareGraphics.tint == secondaryColor) {
