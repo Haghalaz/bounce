@@ -120,15 +120,15 @@ function App() {
           BOUNCE
         </h2>
       </div>
-      <div className="h-[22rem] w-[24rem] overflow-hidden rounded-lg bg-[#3D3940] md:h-[22rem] md:w-[40rem] lg:h-[30rem] lg:w-[60rem]" ref={pixiContainer} />
+      <div className="h-[30rem] w-[22rem] overflow-hidden rounded-lg bg-[#3D3940] md:h-[22rem] md:w-[40rem] lg:h-[30rem] lg:w-[60rem]" ref={pixiContainer} />
       <div className="grid w-96 grid-flow-col grid-cols-2 gap-12">
         <div className={`flex items-center justify-center gap-1  ${sand > sea && "opacity-50"}`}>
           <LuWaves className="h-4 w-4 stroke-white" />
-          <p className="text-md  text-white">The Sea {String(sea).padStart(3, "0")}</p>
+          <p className="text-md  text-[#39bfbf]">The Sea {String(sea).padStart(3, "0")}</p>
         </div>
         <div className={`flex items-center justify-center gap-1 ${sea > sand && "opacity-50"}`}>
           <WiSandstorm className="h-6 w-6 fill-white" />
-          <p className="text-md  text-white">The Sand {String(sand).padStart(3, "0")}</p>
+          <p className="text-md  text-[#ffd0a4]">The Sand {String(sand).padStart(3, "0")}</p>
         </div>
       </div>
     </div>
